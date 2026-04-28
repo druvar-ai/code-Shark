@@ -18,9 +18,9 @@ int currentLevel = -1;
 #define VIB_PIN    27   // Vibration sensor digital
 
 
-#define GREEN_LED 2
-#define RED1 4
-#define RED2 5
+#define GREEN_LED 26
+#define RED1 25
+#define RED2 33
 #define RED3 18
 #define SERVO_PIN  13   // Valve actuator
 
@@ -28,12 +28,6 @@ int currentLevel = -1;
 #define RAIN_WET_THRESHOLD  1800   // ADC below this = WET
 #define RAIN_MOD_THRESHOLD  3000   // ADC below this = MODERATE
 #define WATER_ADC_SAMPLES   8      // Averaging samples for stability
-
-Servo valveServo;
-
-// ===== SERVO POSITION (driven by backend risk, received via Serial) =====
-int targetServoPos   = 0;
-int currentServoPos  = 0;
 
 void driveActuators(int riskLevel) {
   // riskLevel 0-3 sent back from backend via serial (optional feature)
@@ -45,34 +39,20 @@ void driveActuators(int riskLevel) {
   switch (riskLevel) {
     case 0:
       digitalWrite(GREEN_LED, HIGH);
-      targetServoPos = 0;
       break;
     case 1:
       digitalWrite(RED1, HIGH);
-      targetServoPos = 20;
       break;
     case 2:
       digitalWrite(RED1, HIGH);
       digitalWrite(RED2, HIGH);
-      targetServoPos = 60;
       break;
     case 3:
       digitalWrite(RED1, HIGH);
       digitalWrite(RED2, HIGH);
       digitalWrite(RED3, HIGH);
-      targetServoPos = 90;
       break;
   }
-}
-
-void smoothMoveServo() {
-  // Non-blocking smooth servo movement
-  if (currentServoPos < targetServoPos) {
-    currentServoPos = min(currentServoPos + 3, targetServoPos);
-  } else if (currentServoPos > targetServoPos) {
-    currentServoPos = max(currentServoPos - 3, targetServoPos);
-  }
-  valveServo.write(currentServoPos);
 }
 
 void setup() {
@@ -86,9 +66,6 @@ void setup() {
   pinMode(RED1, OUTPUT);
   pinMode(RED2, OUTPUT);
   pinMode(RED3, OUTPUT);
-
-  valveServo.attach(SERVO_PIN);
-  valveServo.write(0);
 
   // All LEDs off initially
   digitalWrite(GREEN_LED, LOW);
@@ -141,9 +118,9 @@ void readCommand() {
 }
 void loop() {
 
-  readCommand();   // ONLY control entry point
+  readCommand();
 
-  // ===== READ RAIN SENSOR =====
+  // ===== READ RAIN =====
   int rainRaw = analogRead(RAIN_AO);
   int rainDO  = digitalRead(RAIN_DO);
 
@@ -166,6 +143,56 @@ void loop() {
 
   // ===== VIBRATION =====
   String vibStatus = digitalRead(VIB_PIN) ? "YES" : "NO";
+
+  // ===== RISK CALCULATION (0–100) =====
+  int riskScore = 0;
+
+  // Rain impact
+  if (rainStatus == "WET") {
+    riskScore += 40;
+  } else if (rainStatus == "MODERATE") {
+    riskScore += 20;
+  }
+
+  // Water impact (dominant factor)
+  int waterPercent = map(waterRaw, 500, 3000, 0, 100);
+  waterPercent = constrain(waterPercent, 0, 100);
+  riskScore += waterPercent * 7 / 10;
+
+  // Vibration impact
+  if (vibStatus == "YES") {
+    riskScore += 30;
+  }
+
+  // Clamp
+  if (riskScore > 100) riskScore = 100;
+
+  // ===== CONVERT TO LEVEL =====
+  int fallbackLevel;
+
+  if (riskScore < 25) fallbackLevel = 0;
+  else if (riskScore < 50) fallbackLevel = 1;
+  else if (riskScore < 75) fallbackLevel = 2;
+  else fallbackLevel = 3;
+
+  // ===== FINAL DECISION =====
+  // Backend only overrides if HIGH risk
+  int riskLevel;
+
+  if (currentLevel >= 2) {
+    riskLevel = currentLevel;
+  } else {
+    riskLevel = fallbackLevel;
+  }
+
+  // ===== DEBUG =====
+  Serial.print("WaterRaw: "); Serial.print(waterRaw);
+  Serial.print(" | Water%: "); Serial.print(waterPercent);
+  Serial.print(" | Score: "); Serial.print(riskScore);
+  Serial.print(" | Level: "); Serial.println(riskLevel);
+
+  // ===== ACTUATION =====
+  driveActuators(riskLevel);
 
   // ===== SEND JSON =====
   Serial.print("{\"rain\":\"");
