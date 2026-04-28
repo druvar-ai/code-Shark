@@ -155,7 +155,7 @@ hr { border-color:#1f2937 !important; }
 # ================================================================
 #  CONSTANTS
 # ================================================================
-API_URL                 = "http://127.0.0.1:8001/data"
+API_URL                 = "http://127.0.0.1:8002/data"
 HISTORY_LEN             = 40
 REFRESH_INTERVAL        = 1
 ACTION_REFRESH_INTERVAL = 5
