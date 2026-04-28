@@ -328,7 +328,7 @@ def validate(df: pd.DataFrame) -> pd.DataFrame:
 # ================================================================
 def main():
     print("=" * 55)
-    print("  Self-Healing Infrastructure — Data Preprocessing")
+    print("  Self-Predictive Infrastructure — Data Preprocessing")
     print("=" * 55)
 
     # Step 1: Load any real CSVs

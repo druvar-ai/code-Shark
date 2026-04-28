@@ -1,13 +1,12 @@
 # code-Shark — Real-Time Disaster Prediction & Automated Dam Control System
 
-An intelligent early warning system that predicts and prevents infrastructure disasters using real-time IoT data and machine learning.
-
+A real-time self-predictive system that monitors environmental conditions, predicts disaster risk, and automatically triggers preventive actions such as dam gate control.
 ---
 
 ## Problem
 
 Infrastructure failures
-Floods and structural failures in India often occur without real-time warning systems, leading to preventable damage and delayed response.
+Floods and structural failures in India often occur without real-time warning systems, leading to unpreventable damage and delayed response.
 
 ---
 

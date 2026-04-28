@@ -1,5 +1,5 @@
 """
-simulator.py — Hardware Simulator for Self-Healing Infrastructure System
+simulator.py — Hardware Simulator for Self-Predictive Infrastructure System
 Drop-in replacement for backend.py when ESP32 is not connected.
 
 Runs a FastAPI on port 8001 with the SAME /data output as backend.py.

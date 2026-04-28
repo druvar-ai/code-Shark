@@ -161,7 +161,7 @@ def add_derived_features(df):
 
 def train():
     print("=" * 55)
-    print("  Self-Healing Infrastructure — ML Model Training")
+    print("  Self-Predictive Infrastructure — ML Model Training")
     print("=" * 55)
 
     print(f"\n[1/5] Generating {N_SAMPLES} synthetic training samples...")

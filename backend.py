@@ -1,5 +1,5 @@
 """
-backend.py — Self-Healing Infrastructure FastAPI Backend
+backend.py — Self-Predictive Infrastructure FastAPI Backend
 Reads ESP32 serial data → time-based counters → ML risk prediction → /data endpoint
 
 Run:  uvicorn backend:app --host 0.0.0.0 --port 8001 --reload
@@ -23,7 +23,7 @@ from fastapi.middleware.cors import CORSMiddleware
 # ================================================================
 #  APP SETUP
 # ================================================================
-app = FastAPI(title="Self-Healing Infrastructure Backend", version="2.0")
+app = FastAPI(title="Self-Predictive Infrastructure Backend", version="2.0")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 # ================================================================
@@ -489,7 +489,7 @@ threading.Thread(target=serial_reader, daemon=True).start()
 # ================================================================
 @app.get("/")
 def root():
-    return {"status": "online", "service": "Self-Healing Infrastructure Backend v2.0"}
+    return {"status": "online", "service": "Self-Predictive Infrastructure Backend v2.0"}
 
 
 @app.get("/data")

@@ -538,12 +538,15 @@ if needs_action_refresh:
 # ── TITLE ──
 st.markdown(
     "<h1 style='text-align:center;letter-spacing:2px;'>"
-    "🚧 SELF-HEALING INFRASTRUCTURE CONTROL CENTER</h1>",
+    "SELF-Predictive INFRASTRUCTURE CONTROL CENTER</h1>",
     unsafe_allow_html=True)
 st.markdown(
     "<p style='text-align:center;color:#64748b;margin-top:-10px;'>"
     "AI-Powered Early Warning System · Real-Time Sensor Fusion · Autonomous Response</p>",
     unsafe_allow_html=True)
+st.info("This system predicts risk before failure and triggers automatic response (dam gate control).")
+st.subheader("System Mode")
+st.success("Predictive Mode Active")
 
 # ── STATUS BAR ──
 elapsed = int(time.time() - st.session_state.start_time)
@@ -731,7 +734,7 @@ st.markdown(
     unsafe_allow_html=True)
 
 st.markdown("---")
-st.caption("Self-Healing Infrastructure System · ESP32 + FastAPI + ML + Streamlit · Hackathon Build")
+st.caption("Self-Predictive Infrastructure System · ESP32 + FastAPI + ML + Streamlit · Hackathon Build")
 
 time.sleep(REFRESH_INTERVAL)
 st.rerun()
