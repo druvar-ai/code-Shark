@@ -1,4 +1,4 @@
-# code-Shark — AI-Powered Infrastructure Safety System
+# code-Shark — Real-Time Disaster Prediction & Automated Dam Control System
 
 An intelligent early warning system that predicts and prevents infrastructure disasters using real-time IoT data and machine learning.
 
@@ -6,7 +6,8 @@ An intelligent early warning system that predicts and prevents infrastructure di
 
 ## Problem
 
-Infrastructure failures (floods, structural damage, seismic activity) often occur without timely warnings, leading to loss of life and property.
+Infrastructure failures
+Floods and structural failures in India often occur without real-time warning systems, leading to preventable damage and delayed response.
 
 ---
 
@@ -35,6 +36,21 @@ ESP32 Sensors → Serial Data → FastAPI Backend → ML Model → Dashboard →
 -  Live dashboard with risk visualization
 
 ---
+
+## Why This Matters
+
+Unlike typical hackathon projects that focus only on prediction or only on hardware, code-Shark integrates real-time sensing, machine learning, and automated response into a single system.
+
+End-to-End System
+Combines ESP32 sensors, ML prediction, and live dashboard — not just a simulation.
+Not Just Prediction — Action
+Automatically triggers dam gate control using a servo motor when flood risk is high.
+Real-Time Intelligence
+Processes live sensor data (rain, water level, vibration) instead of static datasets.
+Low-Cost & Deployable
+Built using affordable sensors and ESP32, making it practical for real-world use in vulnerable regions.
+Multi-Risk Awareness
+Simultaneously evaluates flood, earthquake, and rainfall risks — most systems handle only one.
 
 ##  Tech Stack
 
