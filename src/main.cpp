@@ -18,10 +18,10 @@ int currentLevel = -1;
 #define VIB_PIN    27   // Vibration sensor digital
 
 
-#define GREEN_LED 16
-#define RED1 17
-#define RED2 18
-#define RED3 19  // Status: HIGH risk
+#define GREEN_LED 2
+#define RED1 4
+#define RED2 5
+#define RED3 18
 #define SERVO_PIN  13   // Valve actuator
 
 // ===== CALIBRATION =====
