@@ -1,0 +1,15 @@
+# PlatformIO
+.pio/
+.vscode/
+build/
+libdeps/
+
+# Python (if not already)
+.venv/
+__pycache__/
+*.pyc
+*.pkl
+
+# Data (IMPORTANT for rules)
+data/
+*.csv
