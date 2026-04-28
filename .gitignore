@@ -223,7 +223,7 @@ data/
 
 # PlatformIO
 .pio/
-
+*.code-workspace
 # VS Code
 .vscode/
 
