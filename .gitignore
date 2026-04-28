@@ -220,7 +220,6 @@ __marimo__/
 # ==== PROJECT SPECIFIC ====
 data/
 *.csv
-model.pkl
 
 # PlatformIO
 .pio/
