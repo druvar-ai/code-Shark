@@ -60,6 +60,9 @@ Simultaneously evaluates flood, earthquake, and rainfall risks — most systems 
 - **Data:** Kaggle datasets (weather, flood, earthquake)
 
 ---
+## 🎥 Demo Video
+This video demonstrates real-time sensor input, risk prediction, and automated response.
+[Watch Demo](https://drive.google.com/file/d/1IZu_eGx6h3srM2G9VE9Ag8M9N6jW14an/view?usp=sharing)
 
 ##  How to Run
 
