@@ -85,11 +85,11 @@ pip install -r requirements.txt
 python preprocess.py
 python train_model.py
 
-# Start backend
+# Start backend(in terminal 1)
 uvicorn backend:app --reload
 
-# Run dashboard
+# Run dashboard(in terminal 2)
 streamlit run app.py
 
-# (Optional) Run simulator
-python simulator.py
+# run voice module (in terminal 3)
+python voice_runner.py
