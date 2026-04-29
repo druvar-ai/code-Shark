@@ -1,63 +1,75 @@
-# code-Shark — Real-Time Disaster Prediction & Automated Dam Control System
+# ⚡ code-Shark — Real-Time Disaster Prediction & Automated Dam Control System
 
-A real-time self-predictive system that monitors environmental conditions, predicts disaster risk, and automatically triggers preventive actions such as dam gate control.
----
-
-## Problem
-
-Infrastructure failures
-Floods and structural failures in India often occur without real-time warning systems, leading to unpreventable damage and delayed response.
+A real-time **self-predictive infrastructure system** that monitors environmental conditions, predicts disaster risks, and automatically triggers preventive actions such as dam gate control.
 
 ---
 
-## Solution
+## 🔍 Problem
 
-code-Shark uses ESP32-based sensors and machine learning to:
-- Monitor environmental conditions in real time
-- Predict disaster risks (Flood, Earthquake, Rain)
-- Automatically trigger preventive actions (e.g., dam gate control)
+Floods and structural failures often occur **without early warning**, leading to delayed response and severe damage.
 
----
-
-## System Architecture
-
-ESP32 Sensors → Serial Data → FastAPI Backend → ML Model → Dashboard → Actuator Control
+Existing systems are:
+- Reactive (respond after failure)
+- Limited to single-risk detection
+- Lacking real-time automation
 
 ---
 
-## Features
+## 🚀 Solution
 
--  Real-time sensor monitoring (rain, water level, vibration)
--  Multi-risk prediction (Flood, Earthquake, Rain)
--  ML-based risk analysis (RandomForest)
--  Timeline-based future prediction
--  Automated dam gate control using servo motor
--  Live dashboard with risk visualization
+**code-Shark** integrates IoT + Machine Learning to create a **predictive and automated safety system**.
+
+It:
+- Continuously monitors environmental conditions  
+- Predicts disaster risks in real time  
+- Automatically triggers preventive actions (e.g., dam gate control)  
 
 ---
 
-## Why This Matters
+## 🏗️ System Architecture
 
-Unlike typical hackathon projects that focus only on prediction or only on hardware, code-Shark integrates real-time sensing, machine learning, and automated response into a single system.
+---
 
-End-to-End System
-Combines ESP32 sensors, ML prediction, and live dashboard — not just a simulation.
-Not Just Prediction — Action
-Automatically triggers dam gate control using a servo motor when flood risk is high.
-Real-Time Intelligence
-Processes live sensor data (rain, water level, vibration) instead of static datasets.
-Low-Cost & Deployable
-Built using affordable sensors and ESP32, making it practical for real-world use in vulnerable regions.
-Multi-Risk Awareness
-Simultaneously evaluates flood, earthquake, and rainfall risks — most systems handle only one.
+## ⚙️ Features
 
-##  Tech Stack
+- 📡 Real-time sensor monitoring (rain, water level, vibration)  
+- 🧠 Multi-risk prediction (Flood, Earthquake, Rain)  
+- 🤖 ML-based risk analysis (Random Forest)  
+- 📈 Future risk prediction (10s, 30s, 60s)  
+- ⚡ Automated dam gate control using servo motor  
+- 📊 Live dashboard with real-time visualization  
 
-- **Hardware:** ESP32, Sensors (Rain, Water Level, Vibration), Servo
-- **Backend:** FastAPI (Python)
-- **Frontend:** Streamlit Dashboard
-- **ML:** Scikit-learn (RandomForest)
-- **Data:** Kaggle datasets (weather, flood, earthquake)
+---
+
+## 🧠 Why This Matters
+
+### 🔗 End-to-End System  
+Combines **hardware + ML + automation** — not just simulation or prediction.
+
+### ⚡ Prediction + Action  
+Goes beyond prediction by **automatically controlling infrastructure** (dam gate).
+
+### 📡 Real-Time Intelligence  
+Processes **live sensor data**, not static datasets.
+
+### 💸 Low-Cost & Deployable  
+Built with ESP32 and affordable sensors → practical for real-world use.
+
+### 🌐 Multi-Risk Awareness  
+Simultaneously evaluates:
+- Flood risk  
+- Earthquake risk  
+- Rainfall impact  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Hardware:** ESP32, Rain Sensor, Water Level Sensor, Vibration Sensor, Servo Motor  
+- **Backend:** FastAPI (Python)  
+- **Frontend:** Streamlit Dashboard  
+- **Machine Learning:** Scikit-learn (Random Forest)  
+- **Data:** Kaggle datasets (weather, flood, earthquake)  
 
 ---
 ## 🎥 Demo Video

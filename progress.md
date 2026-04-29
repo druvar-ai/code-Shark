@@ -1,111 +1,133 @@
-# 📈 Project Progress Log — code-Shark
+# 📈 Project Progress — Self-Predictive Infrastructure System
 
-## 🚀 Phase 1 — System Setup
-- Defined problem: early warning for infrastructure failure
-- Selected sensors: rain, water level, vibration (ESP32)
-- Built ESP32 firmware for raw sensor output
-- Established serial communication with backend
+## 🔍 Problem Statement
+Traditional infrastructure systems react **after failure occurs**.  
+This project focuses on **predicting risk in real-time** using sensor data and enabling **preventive action**.
 
 ---
 
-## ⚙️ Phase 2 — Backend & Dashboard
-- Developed FastAPI backend to process sensor data
-- Built real-time dashboard using Streamlit
-- Implemented live telemetry (rain, water, vibration)
-- Designed initial rule-based risk calculation
+## ⚙️ System Overview
+A real-time pipeline integrating:
+- ESP32 + sensors (rain, water level, vibration)
+- FastAPI backend for processing & prediction
+- Machine Learning model for risk estimation
+- Streamlit dashboard for visualization
+- Automated actuator (servo gate control)
 
 ---
 
-## 🧠 Phase 3 — Machine Learning Integration
-- Prepared structured dataset (rainfall, flood, earthquake)
-- Built preprocessing pipeline for data consistency
-- Trained RandomForest model for risk prediction
-- Integrated ML model into backend system
-- Added fallback logic for system reliability
+## 🚀 Work Completed
+
+### 1. Hardware Integration
+- Integrated rain, water level, and vibration sensors with ESP32
+- Stable serial communication established
+- Real-time sensor data streaming implemented
 
 ---
 
-## 🔁 Phase 4 — Prediction & Automation
-- Implemented real-time risk prediction logic
-- Separated risk types (flood, rain, earthquake)
-- Integrated actuator system (servo as dam gate)
-- Enabled automatic response based on flood risk levels
+### 2. Backend Development
+- Built FastAPI backend for data ingestion and processing
+- Implemented time-based feature engineering (rain duration, vibration duration, water trend)
+- Designed rule-based fallback system for reliability
+- Integrated ML model for predictive risk scoring
 
 ---
 
-## 🔥 Phase 5 — Risk Intelligence Upgrade
-- Introduced weighted risk calculation:
-  - Flood (0.5), Rain (0.3), Earthquake (0.2)
-- Implemented combined overall risk computation
-- Added multi-risk boost logic for realistic escalation
-- Improved risk classification (very low → critical)
+### 3. Machine Learning
+- Created synthetic dataset simulating disaster conditions
+- Trained Random Forest model for risk prediction
+- Combined ML predictions with rule-based logic for robustness
 
 ---
 
-## ⚡ Phase 6 — Hardware Refinement
-- Fixed LED-based risk indication system:
-  - Multi-level red LEDs for severity
-- Improved sensor calibration (water + rain thresholds)
-- Ensured stable and responsive hardware behavior
-- Synced ESP32 with backend commands reliably
-
----
-
-## 🔊 Phase 7 — Intelligent Voice Alert System
-- Designed real-time voice alert module
+### 4. Risk Intelligence System
+- Computed:
+  - Flood risk
+  - Rain risk
+  - Earthquake risk
+  - Overall risk score
 - Implemented:
-  - Context-aware speech (only active risks)
-  - Risk prioritization (dominant risk first)
-  - Dynamic sentence variation (non-repetitive output)
-  - Continuous adaptive narration
-- Added:
-  - Risk + percentage based communication
-  - Escalation logic (Warning / Critical)
-  - Sound triggers:
-    - ALERT_SOUND
-    - CRITICAL_ALARM
+  - Trend detection (RISING / FALLING / STABLE)
+  - Future risk prediction (10s, 30s, 60s)
 
 ---
 
-## 🎯 Phase 8 — System Reframing & Optimization
-- Renamed system to **Self-Predictive Infrastructure**
-- Improved clarity and real-world relevance
-- Reduced redundant outputs and noise
-- Enhanced dashboard presentation and messaging
-- Strengthened system stability and consistency
+### 5. Dashboard
+- Built real-time Streamlit dashboard
+- Visualized:
+  - Sensor data
+  - Risk levels
+  - Trends and predictions
+- Enabled intuitive monitoring interface
 
 ---
 
-## 🎥 Phase 9 — Demo & Final Integration
-- Created demo video showcasing:
-  - Real-time sensor input
-  - Dynamic risk prediction
-  - LED-based risk visualization
-  - Automated dam gate control
-- Verified full system pipeline:
-  ESP32 → Backend → Dashboard → Actuation → Voice
-- Prepared GitHub repository with documentation and demo
+### 6. Automation (Actuation)
+- Connected servo motor as a dam gate mechanism
+- Implemented automatic control based on risk levels
+- Achieved real-time response from backend → hardware
 
 ---
 
-## 🧠 Key Highlights
+### 7. System Stabilization
+- Fixed serial communication issues
+- Resolved ML prediction inconsistencies
+- Cleaned architecture:
+  - Removed redundant/duplicate logic
+  - Separated data, prediction, and output layers
+
+---
+
+## 🔊 Current Enhancement (In Progress)
+- Designing **Intelligent Voice Alert System**
+- Features being implemented:
+  - Context-aware risk narration
+  - Multi-risk prioritization
+  - Dynamic sentence generation (non-repetitive)
+  - Continuous real-time alerts
+  - Escalation handling (Warning / Critical)
+  - Sound-trigger integration (alert + alarm)
+
+👉 Goal: Transform system from **monitoring tool → situational awareness system**
+
+---
+
+## 🎥 Demo Status
+- Real-time system demonstrated with:
+  - Live sensor inputs
+  - Risk computation
+  - Dashboard visualization
+  - Automated gate control
+- Demo video recorded and added to repository
+
+---
+
+## 🧠 Key Strengths
 - Real-time IoT + ML integration
-- Predictive + preventive system (not just monitoring)
-- Automated physical response (dam gate control)
-- Intelligent voice-based alert system
-- Low-cost and scalable solution
-
----
-
-## 🚀 Current Status
-✅ Fully integrated and functional system  
-✅ Real-time response verified  
-✅ Demo-ready for evaluation  
+- Predictive (not reactive) system
+- Hardware + software + intelligence combined
+- Automated physical response
+- Scalable and low-cost design
 
 ---
 
 ## 🔮 Future Scope
-- Mobile alert system (SMS / app)
-- Cloud deployment for scalability
-- Improved ML models with real-world data
-- Smart city infrastructure integration
+- Mobile alerts (SMS / app notifications)
+- Cloud deployment for large-scale monitoring
+- Real-world dataset integration for model improvement
+- Multi-location sensor network (smart city deployment)
+- Advanced AI-based anomaly detection
+- Full audio alert system with sirens and priority routing
+
+---
+
+## ✅ Current Status
+✔ Fully functional core system  
+✔ Real-time prediction and automation working  
+✔ Demo-ready with stable performance  
+✔ Voice system under final integration  
+
+---
+
+## 🚀 Conclusion
+This system demonstrates a **shift from reactive infrastructure management to predictive intelligence**, enabling early warning, automated response, and improved safety in disaster-prone environments.
